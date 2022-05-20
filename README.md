@@ -1,12 +1,13 @@
 # Machine learning project #
 ## Sentence sentiment analysis, project at the end of the third module of the practical python course. ##
 
-![Image](https://th.bing.com/th/id/OIP.P8Kr-dAUoTp436q802ryVQHaE_?pid=ImgDet&rs=1)
+![Image](https://th.bing.com/th/id/OIP.P8Kr-dAUoTp436q802ryVQHaE_?pid=ImgDet&rs=1=250x)
+
 Source: *https://th.bing.com/th/id/OIP.P8Kr-dAUoTp436q802ryVQHaE_?pid=ImgDet&rs=1*
 
 ## Table of contents: ##
-### 1. General information about the project. ###
-### 2. About training and testing data. ###
+1. General information about the project. 
+2. About training and testing data. 
 
 ### 1. General information about the project. ###
 
