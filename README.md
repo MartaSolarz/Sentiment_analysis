@@ -1,7 +1,7 @@
 # Machine learning project #
-## Sentence sentiment analysis, project at the end of the third module of the practical python course. ##
+### *Sentence sentiment analysis, project at the end of the third module of the practical python course.* ###
 
-![Image](https://th.bing.com/th/id/OIP.P8Kr-dAUoTp436q802ryVQHaE_?pid=ImgDet&rs=1=600x)
+![Image](https://th.bing.com/th/id/OIP.P8Kr-dAUoTp436q802ryVQHaE_?pid=ImgDet&rs=1)
 
 Source: *https://th.bing.com/th/id/OIP.P8Kr-dAUoTp436q802ryVQHaE_?pid=ImgDet&rs=1*
 
