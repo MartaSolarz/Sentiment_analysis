@@ -2,7 +2,7 @@
 # Analysis of the emotional marking of comments (sentiment of statement)
 # Training data: http://ai.stanford.edu/~amaas/data/sentiment/
 # Test data: user testing
-# 
+# New main branch: 30.05.2022
 
 import glob
 
