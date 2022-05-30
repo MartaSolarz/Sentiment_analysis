@@ -2,143 +2,91 @@
 # Analysis of the emotional marking of comments (sentiment of statement)
 # Training data: http://ai.stanford.edu/~amaas/data/sentiment/
 # Test data: user testing
-# New main branch: 30.05.2022
+
+FOLDER_POS = r'M03\data\aclImdb\train\pos\*.txt'
+FOLDER_NEG = r'M03\data\aclImdb\train\neg\*.txt'
 
 import glob
 
-POS_FILE = r'M03\data\aclImdb\train\pos\*.txt'
-NEG_FILE = r'M03\data\aclImdb\train\neg\*.txt'
+files_positive = glob.glob(FOLDER_POS)
+files_negative = glob.glob(FOLDER_NEG)
 
-def remove_punctation(text):
+positive = []
+negative = []
 
-    """
-    Removing special characters from the given text.
+special_char = '?.,!>~#*@()'
+
+def reviews(files_type, list):
+    for file in files_type:
+        with open(file,  encoding='utf8') as stream:
+            comment = stream.read()
     
-    parametres:
-        text;
-    return:
-        new text, without punctations.
-    """
+        comment = comment.replace('<br />', ' ') 
 
-    SPECIAL_CHAR = '?.,!>~#*@()'
-
-    comment = text.replace('<br />', ' ')
-    comment_new = ''
-
-    for char in comment:  
-        if char in SPECIAL_CHAR:
-            comment_new += char.replace(char,' ')
-        else:
-            comment_new += char
+        comment_new = ''
+        for char in comment:  
+            if char in special_char:
+                comment_new += char.replace(char,' ')
+            else:
+                comment_new += char
     
-    return comment_new
+        comment = comment_new.lower()
+        comment = comment.split(' ')
+        list.append(comment)
 
+reviews(files_positive, positive)
+reviews(files_negative, negative)
 
-def load_files(files):
+# User statement:
 
-    """ 
-    Load files. Use glob module. Counting how many files the word is in.
+user_review = input('Give a statement: ')
 
-    parameters: 
-        files - indicate the path pattern that the function is to find using the glob module;
-        dictonary - select an empty dictionary where the results will be saved;
-    return: 
-        dictonary
-    """
-    files = glob.glob(files)
+new_user_review = ''
 
-    dictonary = {}
-    for file in files:
-        with open(file, encoding='utf8') as stream:
-            content = stream.read()
-            content_without_punctations = remove_punctation(content)
-            words = content_without_punctations.lower().split()
-            for word in set(words):
-                dictonary[word] = dictonary.get(word, 0) + 1
-    
-    return dictonary
-
-
-def count_sentiment(dictonary):
-
-    """ 
-    Counting the sentiment of individual words.
-    
-    parametres:
-        dictonary - select a dictonary;
-    return: 
-        resonance of the word
-    """
-
-    if word in dictonary:
-        resonance = dictonary[word]
+for char in user_review:
+    if char in special_char:
+        new_user_review += char.replace(char, '')
     else:
-        resonance = 0.0
+        new_user_review += char
+
+user_review = new_user_review.lower()
+user_review = user_review.split(' ')
+
+# Sentiment:
+
+sum_pos = 0
+sum_neg = 0
+sum_sentiment = 0
+
+for word in user_review:
+    for statement in positive:
+        if word in statement:
+            sum_pos += 1
+
+    for statement in negative:
+        if word in statement:
+            sum_neg += 1
     
-    return resonance
+    all_ = sum_pos + sum_neg
 
-
-def new_review(text):
-
-    """
-    Add new review.
+    if all_ != 0:
+        word_sentiment = (sum_pos - sum_neg)/all_
+    else: 
+        word_sentiment = 0.0
     
-    parametres:
-        text - new review;
-    return: 
-        list of the words
-    """
-
-    sentence = remove_punctation(text)
-    words = sentence.lower().split()
-
-    return words
+    print(word, word_sentiment)
+    sum_sentiment += word_sentiment
+    sum_pos = 0
+    sum_neg = 0
 
 
-def final_raport(sentence_sentiment):
+average_sentiment = sum_sentiment/len(user_review)
 
-    """
-    Print final raport.
-    
-    parametres:
-        sentence_sentiment - total sentiment of the sentence
-    print:
-        information about sentiment of new review
-    """
+print('The sentiment of this statement is', average_sentiment)
 
-    if sentence_sentiment >0:
-       label = 'positive'
-    else:
-        label = 'negative'
-    print('---')
-    print('This sentence is', label + ':', 'sentiment =', sentence_sentiment)
-
-
-if __name__ == '__main__':
-    
-    pos_reviews = load_files(POS_FILE)
-    neg_reviews = load_files(NEG_FILE)
-    
-    sentence = input('Podaj komentarz: ')
-    words = new_review(sentence)
-
-    sentence_sentiment = 0
-
-    for word in words:
-        positive = count_sentiment(pos_reviews)
-        negative = count_sentiment(neg_reviews)
-
-        all_ = positive + negative
-
-        try:
-            word_sentiment = (positive-negative)/all_
-        except ZeroDivisionError:
-            word_sentiment = 0.0
-
-        print(word, word_sentiment)
-
-        sentence_sentiment += word_sentiment
-
-    sentence_sentiment /= len(words)
-
-    final_raport(sentence_sentiment)
+if average_sentiment > 0:
+    print('This statement is positive.')
+elif average_sentiment < 0:
+    print('This statement is negative.')
+else:
+    print('This statement is neutral.')
