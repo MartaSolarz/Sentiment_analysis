@@ -45,6 +45,7 @@ def load_files(files):
     return: 
         dictonary
     """
+    
     files = glob.glob(files)
 
     dictonary = {}
