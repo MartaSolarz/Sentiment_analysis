@@ -8,6 +8,7 @@ Source: *https://th.bing.com/th/id/OIP.P8Kr-dAUoTp436q802ryVQHaE_?pid=ImgDet&rs=
 ## Table of contents: ##
 1. General information about the project. 
 2. About training and testing data. 
+3. Python modules used.
 
 ### 1. General information about the project. ###
 
@@ -23,5 +24,8 @@ The testing data: *the program is written in such a way that it is tested manual
 
 **Project made as part of the course:** praktycznypython.pl
 
-**Author:** Marta Solarz
+### 3. Python modules used. ###
 
+- glob
+
+*Author: Marta Solarz*
