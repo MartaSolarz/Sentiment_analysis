@@ -5,6 +5,7 @@
 # New main branch: 30.05.2022
 
 import glob
+from string import punctuation
 
 POS_FILE = r'M03\data\aclImdb\train\pos\*.txt'
 NEG_FILE = r'M03\data\aclImdb\train\neg\*.txt'
@@ -20,13 +21,11 @@ def remove_punctation(text):
         new text, without punctations.
     """
 
-    SPECIAL_CHAR = '?.,!>~#*@()'
-
     comment = text.replace('<br />', ' ')
     comment_new = ''
 
     for char in comment:  
-        if char in SPECIAL_CHAR:
+        if char in punctuation:
             comment_new += char.replace(char,' ')
         else:
             comment_new += char
