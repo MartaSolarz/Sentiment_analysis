@@ -27,6 +27,6 @@ The testing data: *the program is written in such a way that it is tested manual
 ### 3. Python modules used. ###
 
 - ```glob```
-- ```from string import punctuation```
+- ```string```
 
 *Author: Marta Solarz*
