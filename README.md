@@ -28,5 +28,6 @@ The testing data: *the program is written in such a way that it is tested manual
 
 - ```glob```
 - ```string```
+- ```typing```
 
 *Author: Marta Solarz*
