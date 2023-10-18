@@ -14,7 +14,7 @@ Source: *https://th.bing.com/th/id/OIP.P8Kr-dAUoTp436q802ryVQHaE_?pid=ImgDet&rs=
 
 **Instructions for the implementation of the project:**
 
-The project's task is to analyze 25,000 movie reviews from a dataset commissioned by a company wishing to use this script as a Stop Hate Bot. Based on the training data, a machine learning model is to be created - the computer will independently determine the emotional handling of the sentence given by the user. In particular, this company wants to identify the most positive and negative statements among millions of neutral comments - thanks to this, they will be able to share the most positive ones, and in the case of the most negative ones, they will be able to react and respond before such comments reach a wider audience.
+The project's task is to analyze 25,000 movie reviews from a dataset commissioned by a company wishing to use this script as a Stop Hate Bot. Based on the training data, the computer will independently determine the emotional handling of the sentence given by the user. In particular, this company wants to identify the most positive and negative statements among millions of neutral comments - thanks to this, they will be able to share the most positive ones, and in the case of the most negative ones, they will be able to react and respond before such comments reach a wider audience.
 
 ### 2. About training and testing data. ###
 
