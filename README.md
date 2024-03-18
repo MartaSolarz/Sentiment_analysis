@@ -20,6 +20,7 @@ The project's task is to analyze 25,000 movie reviews from a dataset commissione
 
 The training data comes from the website: *http://ai.stanford.edu/~amaas/data/sentiment/*.
 
+
 The testing data: *the program is written in such a way that it is tested manually by the users entering their sentence.*
 
 **Project made as part of the course:** praktycznypython.pl
